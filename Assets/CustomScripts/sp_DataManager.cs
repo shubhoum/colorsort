@@ -40,7 +40,7 @@ public class sp_DataManager : MonoBehaviour
                 json = JsonUtility.ToJson(customBackgroundObject);
                 break;
             case Type.Tubes:
-                json = JsonUtility.ToJson(customBackgroundObject);
+                json = JsonUtility.ToJson(customTubesObject);
                 break;
             case Type.Coins:
                 json = JsonUtility.ToJson(gameCoin);
