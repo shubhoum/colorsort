@@ -16,3 +16,5 @@ MonoBehaviour:
   easyCoin: 10
   mediumCoin: 20
   hardCoin: 30
+  tuneUndoCount: 3
+  addTubeCount: 3

@@ -12,6 +12,10 @@ public class sp_GameCoin : ScriptableObject
     public long easyCoin = 10;
     public long mediumCoin = 20;
     public long hardCoin = 30;
+    
+    public int tuneUndoCount;
+    public int addTubeCount;
+    
 
 
 

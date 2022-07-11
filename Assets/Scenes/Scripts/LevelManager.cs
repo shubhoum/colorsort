@@ -33,6 +33,7 @@ public class LevelManager : MonoBehaviour
     public bool HaveUndo => _undoStack.Count > 0;
 
     public sp_CustomTubes customTubes;
+    public sp_GameCoin gameCoin;
 
     public bool IsTransfer{ get; set; }
 
@@ -61,6 +62,15 @@ public class LevelManager : MonoBehaviour
     }
 
     public void AddNewTube(){
+        if (gameCoin.addTubeCount == 0){
+            Debug.LogError("Buy");
+            return;
+        }
+
+        gameCoin.addTubeCount--;
+        sp_DataManager.Instance.SaveData(sp_DataManager.GameCoin, sp_DataManager.Type.Coins);
+        Debug.Log("Coin Database Updated..");
+        
         var list = PositionsForHolders(_holders.Count + 1, out var width).ToList();
         _camera.orthographicSize = 0.5f * width * Screen.height / Screen.width;
         var holder = Instantiate(_holderPrefab, list[_holders.Count - 1], Quaternion.identity);
@@ -73,9 +83,18 @@ public class LevelManager : MonoBehaviour
 
     public void OnClickUndo(){
         
-        if (CurrentState != State.Playing || _undoStack.Count <= 0 || IsTransfer )
+        if (gameCoin.tuneUndoCount == 0){
+            Debug.LogError("Buy");
+            return;
+        }
+
+        if (CurrentState != State.Playing || _undoStack.Count <= 0 || IsTransfer)
             return;
         
+        gameCoin.tuneUndoCount--;
+        sp_DataManager.Instance.SaveData(sp_DataManager.GameCoin, sp_DataManager.Type.Coins);
+        Debug.Log("Coin Database Updated..");
+
         var moveData = _undoStack.Pop();
 
         foreach (var holder in _holders){
@@ -105,8 +124,8 @@ public class LevelManager : MonoBehaviour
     }
 
     public void AddLatestMove(Holder fromHolder, Holder toHolder, Liquid liquid, float amount){
-        
-        Debug.Log("From Holder " + fromHolder + " --- " +"To Holder " + toHolder + " --- " + "Liquid " + liquid + " --- " +"Amount " + amount);
+        Debug.Log("From Holder " + fromHolder + " --- " + "To Holder " + toHolder + " --- " + "Liquid " + liquid +
+                  " --- " + "Amount " + amount);
         MoveData moveData = new MoveData();
         moveData.FromHolder = fromHolder;
         moveData.ToHolder = toHolder;
