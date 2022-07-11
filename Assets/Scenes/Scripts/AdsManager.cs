@@ -1,6 +1,6 @@
 ﻿using System;
 using Game;
-#if ADMOB
+#if !ADMOB
 using GoogleMobileAds.Api;
 #endif
 using UnityEngine;
@@ -71,7 +71,7 @@ public partial class AdsManager : Singleton<AdsManager>
 
 
 #if !ADMOB
-    private static RewardBasedVideoAd _rewardBaseVideo;
+    //private static RewardBasedVideoAd _rewardBaseVideo;
     private static InterstitialAd _interstitialAd;
 
 #endif
@@ -90,10 +90,10 @@ public partial class AdsManager : Singleton<AdsManager>
 
 
 #if !ADMOB
-        _rewardBaseVideo = RewardBasedVideoAd.Instance;
-        _rewardBaseVideo.OnAdRewarded += RewardBaseVideoOnOnAdRewarded;
-        _rewardBaseVideo.OnAdFailedToLoad += (sender, args) =>
-        {
+        //_rewardBaseVideo = RewardBasedVideoAd.Instance;
+        //_rewardBaseVideo.OnAdRewarded += RewardBaseVideoOnOnAdRewarded;
+        //_rewardBaseVideo.OnAdFailedToLoad += (sender, args) =>
+        {!ADMOB
             //            PlatformUtils.ShowToast($"Video Ads Loaded Failed:{args.Message}");
             Invoke(nameof(RequestAdmobRewardVideo), 6f);
         };
@@ -112,13 +112,13 @@ public partial class AdsManager : Singleton<AdsManager>
     private void RequestAdmobRewardVideo()
     {
         var request = new AdRequest.Builder().Build();
-        _rewardBaseVideo.LoadAd(request, AdmobRewardedID);
+        //_rewardBaseVideo.LoadAd(request, AdmobRewardedID);
     }
 
 
     private void RequestAdmobInterstitial()
     {
-        _interstitialAd = new InterstitialAd(AdmobInterstitialID);
+        //_interstitialAd = new InterstitialAd(AdmobInterstitialID);
         _interstitialAd.OnAdClosed += InterstitialAdOnOnAdClosed;
         _interstitialAd.OnAdFailedToLoad += (sender, args) =>
         {
@@ -255,7 +255,7 @@ public partial class AdsManager
             {
                 Instance._pendingCallback = completed;
 #if !ADMOB
-                _rewardBaseVideo.Show();
+              //  _rewardBaseVideo.Show();
 
 #endif
             }
