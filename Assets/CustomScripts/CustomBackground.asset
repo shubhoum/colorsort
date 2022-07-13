@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022ab7c0e2f583c409cd5b61c35acffc, type: 3}
   m_Name: CustomBackground
   m_EditorClassIdentifier: 
-  lockedBackground: {fileID: 21300000, guid: cab84bdcb42eabb4487fc04f7ef6e7aa, type: 3}
-  currentSelectBackground: {fileID: 21300000, guid: b15f1dd366b13174f90f025d4c7c09f5,
+  lockedBackground: {fileID: 21300000, guid: ab4c1a73698aa314895eba46b072729c, type: 3}
+  currentSelectBackground: {fileID: 21300000, guid: 01dc8874b0110114590b564041957bec,
     type: 3}
-  selectedColor: {r: 0.19400334, g: 0.5849056, b: 0, a: 1}
+  selectedColor: {r: 0.58431375, g: 0.2198272, b: 0, a: 1}
   normalColor: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
   BackgroundList:
   - name: Background1
@@ -24,12 +24,17 @@ MonoBehaviour:
     isLocked: 0
     isCurrentSelected: 1
   - name: Background2
-    background: {fileID: 21300000, guid: b15f1dd366b13174f90f025d4c7c09f5, type: 3}
+    background: {fileID: 21300000, guid: be2b7129fc64759408fbb9ca736ec72f, type: 3}
     price: 100
     isLocked: 1
     isCurrentSelected: 0
   - name: Background3
-    background: {fileID: 21300000, guid: 01dc8874b0110114590b564041957bec, type: 3}
+    background: {fileID: 21300000, guid: 596e283ef9e984046a59e2a1fbe4a51b, type: 3}
+    price: 100
+    isLocked: 1
+    isCurrentSelected: 0
+  - name: Background4
+    background: {fileID: 21300000, guid: 1cc6dbcf80678463abf46bf3d2831842, type: 3}
     price: 100
     isLocked: 1
     isCurrentSelected: 0

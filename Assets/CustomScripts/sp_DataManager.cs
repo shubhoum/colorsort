@@ -28,7 +28,7 @@ public class sp_DataManager : MonoBehaviour
     bool IsSaveFile(string filepath) => Directory.Exists(Application.persistentDataPath + filepath);
 
     public void SaveData(string filepath, Type type){
-        if (IsSaveFile(filepath)){
+       if (IsSaveFile(filepath)){
             Directory.CreateDirectory(Application.persistentDataPath + filepath);
         }
 
@@ -54,14 +54,17 @@ public class sp_DataManager : MonoBehaviour
 
     }
 
-    public void LoadData(string filepath, Type type){
-        BinaryFormatter bf = new BinaryFormatter();
+    public void LoadData(string filepath, Type type)
+    {
+       /* BinaryFormatter bf = new BinaryFormatter();
 
-        if (File.Exists(Application.persistentDataPath + filepath + $"{type}.txt")){
+        if (File.Exists(Application.persistentDataPath + filepath + $"{type}.txt"))
+        {
             FileStream file = File.Open(Application.persistentDataPath + filepath + $"{type}.txt",
                 FileMode.Open);
 
-            switch (type){
+            switch (type)
+            {
                 case Type.Backgrounds:
                     JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), customBackgroundObject);
                     break;
@@ -75,10 +78,12 @@ public class sp_DataManager : MonoBehaviour
 
             file.Close();
         }
-        else{
+        else
+        {
             Debug.LogError("File doesn't exits..");
-        }
-        Debug.Log(type + " is Loaded");
+
+            Debug.Log(type + " is Loaded");
+        }*/
     }
 
     public enum Type
