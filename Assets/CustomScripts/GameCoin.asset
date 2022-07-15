@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c31d592adf370545954685cf5a43b74, type: 3}
   m_Name: GameCoin
   m_EditorClassIdentifier: 
-  coin: 430
+  coin: 9900
   easyCoin: 10
   mediumCoin: 20
   hardCoin: 30

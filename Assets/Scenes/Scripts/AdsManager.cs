@@ -1,6 +1,6 @@
 ﻿using System;
 using Game;
-#if ADMOB
+#if !ADMOB
 using GoogleMobileAds.Api;
 #endif
 using UnityEngine;
@@ -12,7 +12,7 @@ using UnityEngine.Advertisements;
 // ReSharper disable once HollowTypeName
 public partial class AdsManager : Singleton<AdsManager>
 {
-#if ADMOB
+#if !ADMOB
     private static string AdmobInterstitialID => Application.platform == RuntimePlatform.Android
         ? GameSettings.Default.AndroidAdmobSetting.interstitialId
         : GameSettings.Default.IosAdmobSetting.interstitialId;
